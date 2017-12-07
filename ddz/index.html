@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>斗地主</title>
+
+</head>
+<link rel="stylesheet" href="./css/index.css">
+<script src="./js/jquery-3.2.1.min.js"></script>
+<script src="./js/Animation.js"></script>
+<script src="./js/javascript.js"></script>
+<script>
+$(function(){
+	var player_obj = {
+		play1:'三藏',
+		play2:'悟空',
+		play3:'悟能',
+		integral:200,
+		difen:100
+	}
+	var Ama = {
+		$spot : $('.spot'),
+		$strip:$('.strip'),
+		$slope:$('.slope'),
+		$write:$('.write'),
+		$onLoad_box:$('.onLoad_box'),
+		$deskL:$('.deskL'),
+		$deskR:$('.deskR'),
+		$game:$('.game'),
+	};
+	var poker = {
+		$allPoker: $('.allPoker'),
+		$leftCard: $('.leftCard'),
+		$midCard: $('.midCard'),
+		$midCardLi:$('.midCard li'),
+		$rightCard: $('.rightCard'),
+		$play1: $('.play_1'),
+		$play2: $('.play_2'),
+		$play3: $('.play_3'),
+		$poker0 :$('.poker0'),
+		$poker1 :$('.poker1'),
+		$poker2 :$('.poker2'),
+		$back :$('.back'),
+		
+		$show:$('.show') ,	    //出牌后展示牌的位置
+
+		$play_2_bt:$('.play_2_bt'),
+    	$play_2_bt2:$('.play_2_bt2'),
+    	$play_2_bt3:$('.play_2_bt3'),
+
+    	$time:$('.time'),
+		$time2:$('.time2'),
+		$bt2:$('.bt2'),
+	};
+
+	var another = {
+		$hand :$('.hand'),
+		$left_people: $('.left_people'),
+		$left_container: $('.left_container'),
+		$right_people: $('.right_people'), 
+		$right_container: $('.right_container'),
+		$left_set1_span: $('.left_set1 span'),
+		$left_prop_tips: $('.left_prop_tips'),
+		$left_set2_span: $('.left_set2 span'),
+		$left_set3_span: $('.left_set3 span'),
+		$right_prop_tips: $('.right_prop_tips'),
+		$right_set1_span: $('.right_set1 span'),
+		$right_set2_span: $('.right_set2 span'),
+		$right_set3_span: $('.right_set3 span')
+	}
+	var special = {
+		$num1td: $('.num1 td'),
+		$num2td: $('.num2 td'),
+		$num3td: $('.num3 td'),
+		$scoreboard: $('.scoreboard'),
+		$close: $('.close'),
+		$end: $('.end'),
+		$win: $('.win'),
+		$music: $('.music'),
+
+		$sound1: $('.sound01'),
+		$sound2: $('.sound02'),
+		
+		$bt2: $('.btn2'),
+		$mid_clock: $('.mid_clock'),
+		$right_clock: $('.right_clock'),
+		$left_clock: $('.left_clock'),
+		$lose: $('.lose'),
+		$left_talk: $('.left_talk'),
+		$right_talk: $('.right_talk'),
+		$tip: $('.tip'),
+		$tips: $('.tips'),
+		$um1: $('.um1'),
+		$um2: $('.um2'),
+		$um3: $('.um3'),
+	}
+
+	var cardSE = {
+		$wz: $('.wz'),
+		$wz_1: $('.wz_1'),
+		$left_talk_img: $('.left_talk img'),
+		$planet: $('.planet'),
+		$boom: $('.boom'),
+		$boom_img: $('.boom_img'),
+		$huohua: $('.huohua'),
+		$sz: $('.sz'),
+		$liandui: $('.liandui'),
+		$lian: $('.lian'),
+		$z: $('.z'),
+		$h: $('.h')
+	} 
+
+	var Music = {
+		sound_01: document.getElementsByClassName('sound01')[0],
+
+		sound_02: document.getElementsByClassName('sound02')[0],
+		
+		music: document.getElementsByClassName('music')[0],
+	
+	}
+
+	var Rob = {
+		$rob1:$('.rob1'),
+		$rob2:$('.rob2'),
+		$rob3:$('.rob3'),
+		
+		$rob_1_1:$('.rob_1_1'),
+		$rob_1_2:$('.rob_1_2'),
+
+		$rob_2_1:$('.rob_2_1'),
+		$rob_2_2:$('.rob_2_2'),
+
+		$rob_3_1:$('.rob_3_1'),
+		$rob_3_2:$('.rob_3_2'),
+	}
+
+	new Animation(Ama,special,poker,Music,Rob);
+	
+	new FightAgainstLandlords(player_obj,null,Ama,poker,another,special,cardSE,Music,Rob);
+
+	
+});
+</script>
+<body>
+<!-- ==================游戏加载====================== -->
+	<div class="onLoad">
+		<!-- 加载动画  -->
+		<div class="onLoad_box">    
+			<div class="pot">
+				<ul class="spots"> 
+					<li class="spot"></li>
+					<li class="spot"></li>
+					<li class="spot"></li>
+					<li class="spot"></li>
+					<li class="spot"></li>
+					<li class="spot"></li>
+				</ul>
+			</div>
+			<!-- 加载条 -->
+			<div class="strip">
+				<div class="slope"></div>
+				<span class="write">Loading...</span>
+			</div>
+		</div>
+
+		<!-- 背景的图片 -->
+			<div class="backgroundPhoto">
+				<img  class="deskL" src="./images/desk-L.jpg" alt="">
+				<img class="deskR" src="./images/desk-R.jpg" alt="">
+			</div>
+		
+		<!-- 进入游戏 -->
+		<div class="game">
+
+			<!-- ==================左边玩家================= -->
+			<div class="game_left">
+				
+				<div class="portrait1">   <!-- 头像区 -->
+					<div class="warn">
+						<img class="warn_img" src="./images/warn.gif" alt="">
+					</div>
+					<img class="head" src="./images/farmer.jpg" alt="">
+				</div>
+				
+				<div class="left_info">  <!-- 玩家信息框 -->
+					<p class="p1_name" style="margin-left:28px">三藏</p>
+					
+				</div>
+				
+				<div class="play_1"> <!-- 手牌区 -->
+					<ul class="leftCard">
+					</ul>
+				</div>
+				
+				<div class="left_land"> <!-- 抢地主按钮 -->
+					<div class=left_clock>   <!-- 倒计时 -->
+						<input class="time1		time" type="button" value="时间">
+					</div>
+					
+					<div class="rob1">  
+						<div class="um1"></div>
+						<input class="rob_1_1" type="button" value="不叫"> <br />
+						<input class="rob_1_2		leftRob" type="button" value="叫地主">
+					</div>
+				</div>
+				
+				
+				
+				
+				<div class="left_talk">   <!-- 对话框 -->
+					<!-- <img class="wz_2" src="./images/wz2.jpg" alt=""> -->
+				</div>
+			
+			</div>
+	<!-- =============中间的部分=========== -->
+		<div class="mid">
+
+				<!--=================== 桌子=================== -->
+			<div class="game_mid_top">
+					
+				<div class="showGrade">	<!--积分框 --> 
+					<p class="text1">本局信息</p>
+					<p class="text2">底分：200</p>
+					<p class="text3">本局倍数：1倍</p>
+					<div class="drop"></div>
+				</div>
+				
+				<ul class="allPoker">
+					<!-- <li class="back"></li> -->
+					 
+					 <ul class="poker0"></ul>  <!-- 剩下3张地主牌的 -->
+					 <ul class="poker1"></ul>
+					 <ul class="poker2"></ul>
+					 <div class="hand"></div>
+				</ul>
+				<div class="showCard">   <!-- 出牌后展示牌的位置 -->
+					<ul class="show"></ul>
+				</div>
+				<div class="tips">
+					<p class="tip">没有牌能打得过上家</p>
+				</div>
+				
+			</div>
+				<!-- =======================中间边玩家=============== -->
+			<div class="game_mid_play">
+				<div class="mid_land">   <!-- 抢地主按钮 -->
+					
+					<div class="mid_clock">   <!-- 倒计时 -->
+						<input class="time2		time" type="button" value="时间">
+					</div>
+					
+					<div class="rob2"> 
+						<div class="um2"></div>
+
+						<input  class="rob_2_1" type="button" value="抢地主">
+
+						<input class="rob_2_2		midRob" type="button" value="不抢">
+					</div>
+				</div>
+				
+				
+				
+				<input  class="play_2_bt	bt2" type="button" value="出牌">
+
+				<input  class="play_2_bt2	bt2" type="button" value="不出">
+
+				<input class="play_2_bt3	bt2" type="button" value="提示">
+					
+
+					
+				<div class="portrait2"> <!-- 头像区 -->
+					<div class="warn">
+						<img class="warn_img" src="./images/warn.gif" alt="">
+					</div>
+					<img class="head" src="./images/farmer.jpg" alt="">
+				</div>
+				
+				<div class="mid_info">  <!--  玩家信息 -->
+					<p class="p2_name" style="margin-left:30px">悟空</p>
+					
+				</div>
+				
+
+				<div class="play_2"> <!-- 手牌区 -->
+					<ul class="midCard">
+						<!-- <li class="poker"></li> -->
+					</ul>
+				</div>
+
+				<div class="mid_talk">  <!-- 对话框 -->
+					<img class="wz_2" src="./images/wz2.jpg" alt="">
+				</div>
+			</div>
+		</div>
+			<!-- ===================右边玩家==================== -->
+			<div class="game_right">
+				
+				<div class="portrait3">  <!-- 头像区 -->
+					<div class="warn">
+						<img class="warn_img" src="./images/warn.gif" alt="">
+					</div>
+					<img class="head" src="./images/farmer.jpg" alt="">
+				</div>
+				
+				<div class="right_info">  <!-- 玩家信息 -->
+					<p class="p3_name" style="margin-right:22px">八戒</p>
+					
+				</div>
+				
+
+				<div class="play_3">  <!-- 手牌区 -->
+					<ul class="rightCard">
+						<!-- <li class="poker"></li> -->
+					</ul>
+				</div>
+				
+				<div class="right_land">  <!--  抢地主按钮 -->
+					
+					<div class="right_clock"> <!--  倒计时 -->
+						<input class="time3		time" type="button" value="时间">
+					</div>
+					
+					<div class="rob3">  
+						<div class="um3"></div>
+						<input class="rob_3_1" type="button" value="不叫"><br />
+						<input class="rob_3_2	rightRob" type="button" value="叫地主">
+					</div>
+				</div>
+				
+				
+				
+				
+				
+				<div class="right_talk">   <!-- 对话框 -->
+					<img class="wz_2" src="./images/wz2.jpg" alt="">
+				</div>
+			</div>
+     <!-- ================道具栏================ -->
+			<div class="left_people"></div>
+			<div class="left_speak">
+				<p>点我看看</p>
+			</div>
+			<div class="left_container"> <!-- 大圈 -->
+				<div class="left_small">
+					<span class="left_prop_tips"></span>
+				</div>  <!-- 小圈 -->
+				
+				<div class="left_set2">
+					<span></span>
+				</div>
+				
+				<div class="left_set1">
+					<span></span>
+				</div>
+			
+				<div class="left_set3">
+					<span></span><!-- waza -->
+				</div>
+			</div>
+	
+			<div class="right_people"></div>
+			<div class="right_speak">
+				<p>也试试我<br />吧</p>
+			</div>
+			
+			<div class="right_container">
+				<div class="right_small">
+					<span class="right_prop_tips" ></span>
+				</div>
+				
+				<div class="right_set1">
+					<span></span>
+				</div>
+				
+				<div class="right_set2">
+					<span></span>
+				</div>
+				
+				<div class="right_set3">
+					<span></span>
+				</div>
+			</div>
+			
+	<!-- ===============牌型效果================= -->
+
+			<div class="wz"> 	<!-- 王炸效果 -->  
+				<img class="wz_1" src="./images/wz2.png" alt="">
+			</div>
+
+			<div class="boom">   <!-- 炸弹 -->
+				<img class="boom_img" src="./images/boom.png" alt="">
+				<img  class="huohua" src="./images/fire.png" alt="">
+			</div>
+			
+			<div class="planet">   <!-- 飞机 -->
+				<!-- <img  class="planet_img" src="./images/plane.png" alt=""> -->
+			</div>
+			
+			
+
+		</div>
+		
+		<div class="sz"></div> <!-- 顺子 -->
+		
+		<div class="liandui" >
+			<div class="lian" >
+				<img src="./22.png">
+				<img class="z" src="./31.png" >
+				<img class="z" src="./31.png" >
+
+			</div>
+				<img class="h" src="./e.png" >
+		</div>
+	<!-- ============积分榜=================== -->
+		<div class="scoreboard">
+			
+			<div class="boardback" ></div>   <!-- 后面的框 -->
+			
+			
+			<div class="boardtop"></div>  <!-- 前面的框 -->
+			
+			<div class="list" >  <!-- 完局结果展示 -->
+			
+			<div class="close"></div>   <!-- 关闭按钮 -->
+			<div class="end"></div>
+			<p class="bang">积分榜</p>
+				
+				<table class="score">
+					<tr>
+						<th>玩家名</th>
+						<th>积分</th>
+						<th>胜场</th>
+					</tr>
+					<tr class="num1">
+						<td>三藏</td>
+						<td>1000</td>
+						<td>0</td>
+					</tr>
+					<tr class="num2">
+						<td>悟空</td>
+						<td>1000</td>
+						<td>0</td>
+					</tr>
+					<tr class="num3">
+						<td>八戒</td>
+						<td>1000</td>
+						<td>0</td>
+					</tr>
+				</table>
+			
+			</div>
+		
+		</div>
+
+	</div>
+
+
+
+	<!-- ===============玩家赢================ --> 
+	<div class="win">
+		<img  class="win_img" src="./images/win.jpg" alt="">
+		<p class="win_message1">行了，你最厉害</p>
+		<p class="win_message2">快下一局吧</p>
+	</div>
+
+<!-- =====================玩家输=============== -->
+	<div class="lose">
+		<img  class="lose_img" src="./images/lose.jpg" alt="">
+		<p class="lose_message1">真丢人</p>
+		<p class="lose_message2">赶紧下一局吧</p>
+	</div>
+
+		<div class="clear"></div>
+
+	<audio class="sound01"></audio>
+	<audio class="sound02"></audio>
+	<audio class="music" src="./music/back/wolf.mp3" autoplay='autoplay' loop=false></audio>
+	
+
+</body>
+</html>

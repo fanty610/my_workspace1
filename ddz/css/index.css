@@ -1,0 +1,1159 @@
+*{margin:0px;padding:0px; list-style:none;border:0 none;} 
+.clear{
+	clear:both;
+}
+li{
+	border-radius:4px;
+	border:1px solid black;
+}
+body{
+overflow:hidden;	
+}
+/*游戏加载*/
+.onLoad{
+	width: 100%;
+	height: 100%;
+	overflow:hidden;
+}
+.onLoad_box{
+	width: 100%;
+	height: 100%;
+	background:url(../images/bg.jpg) no-repeat;
+	background-size:100%;
+	text-align:center;
+	position:absolute;
+	overflow:hidden;
+	display:block;
+}
+.pot{
+	width: 100%;
+	height: 12px;
+	position:absolute;
+	top: 50%;
+	margin-top:-1.5%;
+}
+.spots{
+	margin:0 0 0 -120px;
+	position:absolute;
+	top:50%;
+	left: 50%;
+}
+.spot {
+	width: 20px;
+	height: 20px;
+	border-radius:50%;
+	border:0 none;
+	background: #FFE4C4;
+	position:relative;
+	margin-left:20px;
+	float:left;
+	top:0px;
+}
+.strip{
+	width: 500px;
+	height: 200px;
+	background:white;
+	position:absolute;
+	bottom:20%;
+	left:50%;
+	margin:0px 0 0 -250px;
+	opacity:0.7;
+	overflow:hidden;
+	cursor:pointer;
+}
+.slope{
+	width: 600px;
+	height: 400px;
+	background:-webkit-linear-gradient(left,#C6318B -20%,#2F41B1 95%);
+	position:absolute;
+	top:-120px;
+	left:-648px;
+	opacity:0.7;
+	transform:rotate(20deg);
+}
+
+.write{
+	font-size:28px;
+	line-height:200px;
+	color:black;
+	position:relative;
+	z-index:3;
+	transition:all 2s ease;
+}
+/*--------------进入游戏-----------------*/
+.game {
+	width:100%;
+	height:100%;
+	position:absolute;
+	opacity:0;
+	transition:all 3s ease;
+	display:none;
+}
+.backgroundPhoto{
+	width: 100%;
+}
+.deskL,.deskR{
+	width: 50%;
+	height: 952px;
+	position:absolute;
+
+}
+
+.deskL{
+	position:absolute;
+	/*left:0px;*/
+	left:-100%;
+	/*left:0%;*/
+}
+
+.deskR{
+	position:absolute;
+	/*left:960px;*/
+	left:100%;
+	/*left:50%;*/
+}
+
+.game input {
+	width: 100px;
+	height: 40px;
+	background:	#EEE8AA;
+	border-radius:5px;
+	border:2px solid #696969;
+	margin-bottom:10px;
+
+}
+/*各个玩家的头像设置*/
+.portrait1,.portrait2,.portrait3{
+	width:130px;
+	height:130px;
+	float:left;
+	border-radius:50%;
+	overflow:hidden;
+}
+
+.head{
+	width:130px;
+	height:130px;
+	border-radius:50%;
+	position:absolute;
+}
+/*-----扑克牌的样式----*/
+.back{
+	width: 125px;
+	height: 175px;
+	background:url(../images/background.jpg) no-repeat;
+	background-size:110%;
+	position:absolute;
+	z-index:6;
+	perspective:900px;
+	transform-style:preserve-3d;
+	transition:all 1s ease;
+}
+
+.poker{
+	background-size:110%;
+	z-index:6;
+	position:absolute;
+
+}
+.poker0,.poker1,.poker2{
+	width: 125px;
+	height: 175px;
+	position:absolute;
+	transition: all 2s ease;
+}
+
+
+
+/*左边*/
+/*左边玩家*/
+.game_left{
+	width:20%;
+	height:952px;
+	padding-top:50px;
+	float:left;
+	position:absolute;
+
+}
+/*手牌区-1*/
+.play_1{
+	width:125px;
+	height:175px;
+	border-radius:2px;
+	float:right;
+	right:6%;
+	position:relative;
+
+}
+
+.rob1{
+	width: 190px;
+	height: 300px;
+	float:left;
+    position:absolute;
+    z-index:50;
+}
+.portrait1{
+	position:absolute;
+	margin-top:-17px;
+	left:6%;
+}
+.left_info{
+	color:#ccc;
+	position:absolute;
+	top:17%;
+	left:13%;
+
+}
+
+.leftCard li {
+	width:125px;
+	height:175px;
+	position:absolute;
+	z-index:6;
+}
+.left_talk{
+	width: 315px;
+	height: 199px;
+	background:url(../images/bg.png) no-repeat 54.3% 32.4%;
+	position:absolute;
+	top:110px;
+	left:110px;
+	transform:rotate(180deg);
+	z-index:150;
+	opacity:0;
+}
+.left_talk>img{
+	width: 150px;
+	height: 150px;
+	position:absolute;
+	transform:rotate(-180deg);
+	left:55px;
+	top:4px;
+}
+
+.left_clock{
+	width: 50px;
+	height: 50px;
+	background:url(../images/clock.png);
+	background-size:100%;
+	position:absolute;
+	top:9%;
+	left:30%;
+}
+.left_clock>input{
+	border:0 none;
+	width: 27px;
+	background:none;
+	text-align:center;
+	color:white;
+	margin:9px 0 0 11px;
+}
+
+.rob_1_1{
+	position:absolute;
+	top:108px;
+	left:53px;
+}
+.rob_1_2{
+	position:absolute;
+	top:163px;
+	left:53px;
+}
+.left_land{
+	width: 250px;
+	height: 300px;
+	position:absolute;
+	left:88%;
+	top:25%;
+	z-index:10;
+}
+.um1{
+	width: 200px;
+	height: 200px;
+	background:url(../images/um.png) no-repeat;
+	background-size:100%;
+	position:absolute;
+	opacity:1;
+}
+/*中间*/
+.mid{
+	width: 60%;
+	height: 952px;
+	position: absolute;
+	left:20%;
+}
+
+/*桌子*/
+.game_mid_top{
+	width:100%;
+	height:600px;
+	margin-bottom:70px;
+	float:left;
+	position:absolute;
+}
+
+.allPoker{
+	width:125px;
+	height:175px;
+	position:absolute;
+	left:50%;
+	margin:80px 0 0 -62px;
+	perspective:900px;
+	transform-style:preserve-3d;
+	z-index:6;
+}
+/*   小手指    */
+.hand{  
+	display:block;
+	width: 50px;
+	height: 80px;
+	background:url(../images/bg.png) no-repeat -1661px -380px;
+	position:absolute;
+	z-index:60;
+	bottom:0px;
+	left:48px;
+	animation: Move 1s infinite;
+}
+@keyframes Move{
+	0%{
+		bottom:15px;
+	}
+	50%{
+		bottom:0px;
+	}
+	100%{
+		bottom:15px;
+	}
+}
+
+/*  积分框   */
+.showGrade{
+	width: 319px;
+	height: 202px;
+	background:url(../images/bg.png) no-repeat -759px -8px ;
+	position:absolute;
+	left:-10px;
+	top:-190px;
+	transition: all 1s ease;
+	z-index:50;
+}
+.drop{
+	width: 22px;
+	height: 44px;
+	background:url(../images/bg.png) no-repeat -1639px -380px ;
+	transform:rotate(180deg);
+	position:absolute;
+	transition: all 1s ease;
+	left:122px;
+	top:199px;
+	cursor:pointer;
+	z-index:50;
+}
+
+.showGrade:hover{
+	top:0px;
+}
+.text1{
+	font-size:25px;
+	font-weight:700;
+	letter-spacing:10px;
+	position:absolute;
+	left:59px;
+	top:32px;
+	z-index:110;
+}
+.text2,.text3{
+	font-size:20px;
+	margin-left:75px;
+	z-index:110;
+}
+.text2{
+	margin-top:114px;
+}
+
+
+/*出牌后桌面上展示牌*/
+.showCard{
+	width: 100%;
+	height: 300px;
+	position:absolute;
+	bottom:-26px;
+}
+.show{
+	width: 125px;
+	height: 175px;
+	position:relative;
+	margin:0px auto;
+}
+.show li{
+	position:absolute;
+	z-index:6;
+}
+
+.play_2_2,.play_2_bt3{
+	margin-left:20px;
+}
+
+.tips{
+	width: 200px;
+	height: 0px;
+	background:url(../images/head.png) no-repeat;
+	position:absolute;
+	left:40%;
+	bottom:66px;
+	z-index: 50;
+}
+.tip{
+	display:none;
+	width: 90px;
+	height: 90px;
+	text-align:center;
+	position:absolute;
+	top:50px;
+	left:55px;
+	z-index: 50;
+}
+/*中间边玩家*/
+.game_mid_play{
+	width:100%;
+	height:420px;
+	float:left;
+	position:absolute;
+	top:63%;
+}
+.rob2{
+	width: 190px;
+	height: 300px;/*
+    margin:-78px 0 0 500px;*/
+    position:absolute;
+    top:0px;
+    z-index:50;
+}
+/*手牌区*/
+.play_2{
+	width:125px;
+	height:175px;
+	border-radius:2px;
+	position:absolute;
+	z-index:60;
+	margin-left:-62.5px;
+	left:50%;
+}	
+.portrait2{
+	position:absolute;
+	top:17px;
+}
+.mid_info{
+	color:#ccc;
+	position: absolute;
+	top:37.5%;
+	left:2%;
+}
+.midCard li {
+	width:125px;
+	height:175px;
+	position:absolute;
+	z-index:6;
+}
+
+
+.move{
+	transition:all 0.3s ease;
+}
+.mid_talk{
+	width: 315px;
+	height: 199px;
+	background:url(../images/bg.png) no-repeat 54.5% 16.65%;
+	position:absolute;
+	top:-143px;
+	z-index:10;
+	left:87px;
+	opacity:0;
+}
+.mid_talk>img{
+	width: 150px;
+	height: 150px;
+	position:absolute;
+	left:80px;
+	top:3px;
+}
+.mid_clock{
+	width: 50px;
+	height: 50px;
+	background:url(../images/clock.png);
+	background-size:100%;
+	position:absolute;
+	z-index:50;
+	left:-49%;
+	top:33%;
+}
+.mid_clock>input{
+	border:0 none;
+	width: 27px;
+	background:none;
+	text-align:center;
+	color:white;
+	margin:9px 0 0 11px;
+}
+.mid_land{
+	width: 250px;
+	height: 300px;
+	position:absolute;
+	top:-40.7%;
+	left:38%;
+	z-index:10;
+}
+
+.rob1,.rob2,.rob3{
+	display:none;
+}
+.bt2{
+	position:absolute;
+	display:none;
+	z-index:50;
+
+}
+.play_2_bt{
+	top:-15.5%;
+	left:32%;
+}
+.play_2_bt2{
+	top:-15.5%;
+	left:44%;
+}
+.play_2_bt3{
+	top:-15.5%;
+	left:55.2%;
+}
+.rob_2_1{
+	position:absolute;
+	top:106px;
+}
+.rob_2_2{
+	position:absolute;
+	top:106px;
+	left:115px;
+}
+.um2{
+	width: 200px;
+	height: 200px;
+	background:url(../images/um.png) no-repeat;
+	background-size:100%;
+	position:absolute;
+	top:-1px;
+	left:6px;
+	z-index:2;
+	opacity:1;
+}
+/*右边玩家*/
+.game_right{
+	width:20%;
+	height:952px;
+	padding-top:50px;
+	float:left;
+	position:absolute;
+	right:0%;
+}
+.play_3{
+	width:125px;
+	height:175px;
+	border-radius:2px;
+	float:left;
+	left:6%;
+	position:relative;
+}
+.rightCard li {
+	width:125px;
+	height:175px;
+	position:absolute;
+	z-index:6;
+}
+.rob3{
+	width: 190px;
+	height: 300px;
+	position:absolute;
+    z-index:50;
+}
+.portrait3{
+	position:absolute;
+	margin-top:-17px;
+	right: 6%;
+
+}
+.right_info{
+	color:#ccc;
+	position:absolute;
+	top:17%;
+	right:13%;
+
+}
+.right_talk{
+	width: 315px;
+	height: 199px;
+	background:url(../images/bg.png) no-repeat 54.5% 16.65%;
+	position:absolute;
+	transform:rotate(180deg);
+	top:130px;
+	right:108px;
+	opacity:0;
+	z-index: 150;
+}
+.right_talk>img{
+	width: 150px;
+	height: 150px;
+	position:absolute;
+	transform:rotate(-180deg);
+	right:83px;
+	top:3px;
+}
+
+.right_clock{
+	width: 50px;
+	height: 50px;
+	background:url(../images/clock.png);
+	background-size:100%;
+	position:absolute;
+	top:10%;
+	right:49%;
+}
+.right_clock>input{
+	border:0 none;
+	width: 27px;
+	background:none;
+	text-align:center;
+	color:white;
+	margin:9px 0 0 11px;
+}
+
+.rob_3_1{
+	position:absolute;
+	top:108px;
+	right:38px;
+}
+.rob_3_2{
+	position:absolute;
+	top:163px;
+	right:38px;
+}
+.right_land{
+	width: 250px;
+	height: 300px;
+	position:absolute;
+	top:25%;
+	right:71%;
+	z-index:10;
+}
+.um3{
+	width: 200px;
+	height: 200px;
+	background:url(../images/um.png) no-repeat;
+	background-size:100%;
+	position:absolute;
+	z-index:2;
+	opacity:1;
+}
+
+/*--------------积分榜的样式-----------*/
+.scoreboard{
+	display:none;
+	width: 740px;
+	height: 500px;
+	position:absolute;
+	z-index:100;	
+	top:50%;
+	left:50%;
+	margin:-250px 0 0 -370px;
+	opacity:0;
+}
+.boardback{   
+	width: 680px;
+	height: 450px;
+	background: #800000;
+	float:left;
+	position:relative;
+	top:30px;
+	left:20px;
+	transform:rotate(-2deg);
+}
+.boardtop{
+	width: 680px;
+	height: 450px;
+	background: #191970;
+	float:left;
+	position:relative;
+	margin:-420px 0 0 20px;
+	transform:rotate(2deg);
+}
+.list{
+	width: 600px;
+	height: 400px;
+	background:#fff;
+	float:left;
+	position:relative;
+	margin:-424px 0 0 58px;
+}
+.bang{
+	width: 300px;
+	left:50%;
+	margin-left:-150px;
+	line-height:70px;
+	font-size:22px;
+	font-weight:700;
+	text-align:center;
+	position:relative;
+}
+.score{
+	width: 600px;
+	text-align:center;
+}
+.close{
+	width: 33px;
+	height: 33px;
+	background:url(../images/bg.png) no-repeat 97.9% 83%;
+	position:relative;
+	margin-left:560px;
+	top:15px;
+}
+.end{
+	width: 100px;
+	height: 40px;
+	background:url(../images/jiesu.png) no-repeat ;
+	position:absolute;
+	bottom:10px;
+	right:0px;
+}
+/*-----------------道具栏--------------*/
+.left_people{
+	width: 132px;
+	height: 153px;
+	background:url(../images/smallpeople.png);
+	position: absolute;
+	bottom: 25px;
+	left:119px;
+
+}
+
+
+.right_people{
+	width: 132px;
+	height: 153px;
+	background:url(../images/smallpeople2.png) no-repeat;
+	position: absolute;
+	bottom: 31px;
+	right:133px;
+}
+
+.left_container,.right_container{
+	width: 298px;
+	height: 298px;
+	border:1px solid white;
+	border-radius:50%;
+	position:absolute;
+	bottom: -150px;
+	overflow:hidden;
+	opacity:0;
+}
+.left_container{
+	transform:rotate(-90deg);
+  	left:-150px;
+}
+.right_container{
+	transform:rotate(90deg);
+	right:-150px;
+}
+.left_speak,.right_speak{
+	width: 100px;
+	height: 100px;
+	position:absolute;
+	opacity:0;
+	transition:all 0.5s ease;
+}
+.left_speak{
+	background:url(../images/talk.png);
+	bottom: 72px;
+	left:192px;
+}
+.left_speak>p{
+	color:white;
+	font-size:13px;
+	position:absolute;
+	left:23px;
+	top:34px;
+}
+.right_speak{
+	background:url(../images/talk2.png);
+	bottom: 107px;
+	right:151px;
+}
+.right_speak>p{
+	color:white;
+	font-size:13px;
+	position:absolute;
+	left:23px;
+	top:20px;
+}
+.left_small,.right_small{
+	width: 148px;
+	height: 148px;
+	border:1px solid white;
+	position: relative;
+	border-radius:50%;
+	left:50%;
+	top:50%;
+	margin:-75px 0 0 -75px;
+	z-index:10;
+}
+.left_small{
+  	background:url(../images/desk-L.jpg) no-repeat -8.3% 96.2%;
+}
+.right_small{
+	background:url(../images/desk-R.jpg) no-repeat  101.98% 95.05%;
+}
+.left_prop_tips{
+	width: 74px;
+	height: 74px;
+	color:white;
+	position:absolute;
+	top:18%;
+	right:5%;
+	text-align:center;
+	font-size:22px;
+}
+.right_prop_tips{
+	width: 74px;
+	height: 74px;
+	color:white;
+	position:absolute;
+	top:18%;
+	left:5%;
+	text-align:center;
+	font-size:22px;
+}
+
+.left_set1,.left_set2,.left_set3,.right_set1,.right_set2,.right_set3{
+	width: 194px;
+	height: 194px;
+	border:3px solid white;
+	position:absolute;
+	left:50%;
+	top:50%;
+	margin-top:-194px;
+
+}
+.left_set1{
+	transform:rotate(-30deg);
+	transform-origin:0% 100%;
+	z-index:3;
+}
+.left_set2{
+	transform:rotate(-60deg);
+	transform-origin:0% 100%;
+	z-index:5;
+}
+.left_set3{
+	margin-left:-3px;
+	transform:rotate(0deg);
+	z-index:1;
+}
+.right_set1{
+	transform:rotate(-90deg);
+	transform-origin:0% 100%;
+	z-index:1;
+}
+.right_set2{
+	transform:rotate(-60deg);
+	transform-origin:0% 100%;
+	z-index:2;
+}
+.right_set3{
+	transform:rotate(-30deg);
+	transform-origin:0% 100%;
+	z-index: 5;
+}
+
+.left_set2>span{
+	width: 70px;
+	height: 70px;
+	background: url(../images/zadan.png) no-repeat;
+	background-size:174%;
+	position:absolute;
+	right:55px;
+	bottom:2px;
+	transform:rotate(75deg);
+}
+.left_set1>span{
+	width: 70px;
+	height: 70px;
+	background: url(../images/liandui.png) no-repeat;
+	background-size:158%;
+	position:absolute;
+	right:55px;
+	bottom:2px;
+	transform:rotate(68deg);
+}
+
+.left_set3>span{ 
+	width: 70px;
+	height: 70px;
+	background: url(../images/wanza.png) no-repeat;
+	background-size:133%;
+	position:absolute;
+	right:62px;
+	bottom:-7px;
+	transform:rotate(43deg);
+}
+
+.right_set1>span{
+	width:70px;
+	height: 70px;
+	background: url(../images/shunzi.png) no-repeat;
+	background-size:133%;
+	position:absolute;
+	left:-4px;
+	top:59px;
+	transform:rotate(8deg);
+}
+.right_set2>span{
+	width:70px;
+	height: 70px;
+	background: url(../images/feiji.png) no-repeat;
+	background-size:158%;
+	position:absolute;
+	left:-30px;
+	top:58px;
+	transform:rotate(26deg);
+}
+
+.right_set3>span{
+	width:70px;
+	height: 70px;
+	background: url(../images/lu.png) no-repeat;
+	background-size:96%;
+	position:absolute;
+	left:-9px;
+	top:54px;
+	transform:rotate(-14deg);
+}
+
+.left_people:hover ~.left_speak{
+	display:block;
+	opacity:1;
+}
+
+.right_people:hover ~.right_speak{
+	display:block;
+	opacity:1;
+}
+
+/*--------------------玩家赢----------------------*/
+.win{
+	width: 1920px;
+	height: 720px;
+	background:#BFDCAE;
+	position:absolute;
+	z-index:100;
+	left:-150%;
+	top:150px;
+	display:none;
+}
+.win_img{
+	width: 720px;
+	height: 720px;
+	border:0 none;
+	position:absolute;
+	left:10%;
+}
+.win_message1,.win_message2{
+	position:absolute;
+	font-size:31px;
+	font-weight:700;
+	transform:rotate(-4deg);
+}
+.win_message1{
+	top:100px;
+	left:450px;
+}
+.win_message2{
+	top:180px;
+	left:450px;
+}
+
+/*-------------------玩家输-----------------*/
+.lose{
+	width: 1920px;
+	height: 720px;	
+	position:absolute;
+	z-index:100;
+	left:0%;
+	top:150px;
+	display:none;
+}
+.lose_img{
+	width: 1000px;
+	height: 720px;
+	border:0 none;
+	position:absolute;
+	left:23%;
+}
+.lose_message1,.lose_message2{
+	width: 1px;
+	position:absolute;
+	font-size:31px;
+	font-weight:700;
+	transform:rotate(-4deg);
+}
+.lose_message1{
+	top:132px;
+	left:549px;
+}
+.lose_message2{
+	top:102px;
+	left:607px;
+}
+.left_talk>p,.right_talk>p{
+	position:absolute;
+	top:75px;
+	left:90px;
+	transform:rotate(180deg);
+	font-size:30px;
+
+}
+
+.warn{
+	display:none;
+	width: 40px;
+	height: 40px;
+	position:absolute;
+	top:-9px;
+	left:45px;
+	z-index:3;
+	overflow:hidden;
+}
+.warn_img{
+	width: 70px;
+	height: 70px;
+	position:absolute;
+	top:-10px;
+	left:-14px;
+}
+/*-------------牌型样式------------------*/
+
+/*  王炸样式  */
+.wz{
+	display:none;
+	width: 600px;
+	height: 900px;
+	position:absolute;
+	z-index:100;
+	left:50%;
+	margin:0 0 0 -300px;
+	top:18px;
+
+}
+.wz_1{
+	width: 600px;
+	height: 900px;
+	position:absolute;
+	z-index:100;
+	opacity:0;
+}
+
+
+/*   炸弹   -*/
+.boom{
+	display:none;
+	width: 1030px;
+	height: 1030px;
+	position:absolute;
+	z-index:100;
+	top:-135px;
+	left:50%;
+	margin:0 0 0 -515px;
+}
+.boom_img{
+	position:absolute;
+	z-index:100;
+	left:50%;
+}
+.huohua{
+	width:0px;
+	height: 0px;
+	position:absolute;
+	z-index:100;
+	top:26px;
+	left:60px;
+}
+
+/*   飞机    */
+.planet{
+	display:none;
+	width: 300px;
+	height: 200px;
+	background:url(../images/plane.png);
+	background-size:100%;
+	position:absolute;
+	z-index:100;
+	top:300px;
+	left:1200px;
+	transform:translateX(500px) translateZ(-1000px);
+/*	transition:all 3s ease;*/
+}
+/*		顺子		*/
+.sz{
+	width: 0px;
+	height: 0px;
+	position:absolute;
+	left:50%;
+	top:50%;
+	/*margin:-400px 0 0 -400px;*/
+	background:url(../images/sz.png) no-repeat;
+	transition:all 3s ease;
+	background-size:cover;
+	display:none;
+	z-index: 10;
+}
+
+.liandui{
+	display:none;
+	position: absolute;
+	z-index: 999;
+	height: 300px;
+	top:50%;
+	left: 50%;
+}
+.lian{
+	width: 200px; 
+	left:50%; 
+	margin-left:-100px;  
+	position: absolute; bottom: 40%;
+}
+.lian>img:first-of-type{
+	width: 200px; 
+	height: 200px;
+	transform: rotate(-40deg);
+}
+.z{
+	width:100px;
+	height: 0px; 
+	position: absolute; 
+	top: 170px;   
+	margin-left: 22px;    
+	transform: rotate(180deg);
+}
+.z:nth-of-type(2){
+	width:100px;
+	height: 0px; 
+	position: absolute; 
+	top: 156px;    
+	margin-left: 82px; 
+	transform: rotate(180deg);
+}
+.h{
+	width: 400px; 
+	height: 50px;  
+	position: absolute; 
+	bottom: 40%;
+	left:50%;
+	margin-left: -200px;
+} 
